@@ -5,8 +5,8 @@
 
         <activity
             android:name=".DevelopmentModeActivity"
-            android:label="Dev"
-            android:icon="@drawable/ic_debug"
+            android:icon="@drawable/ic_development_launcher"
+            android:label="Developer mode"
             android:taskAffinity="fr.bowser.dev.develoment_mode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
