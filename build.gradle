@@ -1,4 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+ext {
+    versionCode = 1_00_00
+    versionName = "1.00.00"
+
+    compileSdkVersion = 29
+    targetSdkVersion = 29
+    minSdkVersion = 21
+}
+
 buildscript {
     ext.kotlin_version = "1.4.0"
     repositories {
