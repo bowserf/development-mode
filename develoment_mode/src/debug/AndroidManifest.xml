@@ -6,7 +6,7 @@
         <activity
             android:name=".DevelopmentModeActivity"
             android:icon="@drawable/ic_development_launcher"
-            android:label="Developer mode"
+            android:label="Development mode"
             android:taskAffinity="fr.bowser.dev.develoment_mode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
