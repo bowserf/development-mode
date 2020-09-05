@@ -27,14 +27,14 @@ interface DevelopmentMode {
 
     interface ValueChangeListener {
 
-        fun onIntValueChanged(key: String, value: Int)
+        fun onIntValueChanged(key: String, value: Int) {}
 
-        fun onLongValueChanged(key: String, value: Long)
+        fun onLongValueChanged(key: String, value: Long) {}
 
-        fun onFloatValueChanged(key: String, value: Float)
+        fun onFloatValueChanged(key: String, value: Float) {}
 
-        fun onStringValueChanged(key: String, value: String)
+        fun onStringValueChanged(key: String, value: String) {}
 
-        fun onBooleanValueChanged(key: String, value: Boolean)
+        fun onBooleanValueChanged(key: String, value: Boolean) {}
     }
 }
