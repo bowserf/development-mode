@@ -1,2 +1,2 @@
-include ':develoment_mode'
+include ':development_mode'
 include ':sample'

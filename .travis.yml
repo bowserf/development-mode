@@ -21,4 +21,4 @@ before_install:
   - chmod +x gradlew
 
 script:
-  - ./gradlew develoment_mode:ktlint develoment_mode:lintDebug develoment_mode:testDebugUnitTest
+  - ./gradlew development_mode:ktlint development_mode:lintDebug development_mode:testDebugUnitTest

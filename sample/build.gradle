@@ -23,7 +23,7 @@ android {
 
 dependencies {
 
-    implementation(project(":develoment_mode"))
+    implementation(project(":development_mode"))
 
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
