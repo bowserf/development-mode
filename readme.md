@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bowserf/development-mode.svg?branch=master)](https://travis-ci.org/bowserf/development-mode)
+
 # Development Mode library
 
 Library to build custom behaviors inside your application built in debug.
