@@ -22,10 +22,17 @@ android {
     }
 }
 
+configurations {
+    ktlint
+}
+
 dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // ktlint
+    ktlint "com.github.shyiko:ktlint:0.31.0"
 
     // AndroidX
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -35,4 +42,19 @@ dependencies {
     testImplementation 'io.mockk:mockk:1.10.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+task ktlint(type: JavaExec, group: "kotlin verification") {
+    description = 'Check Kotlin code style.'
+    args 'src/**/*.kt'
+    main = 'com.github.shyiko.ktlint.Main'
+    classpath = configurations.ktlint
+}
+check.dependsOn ktlint
+
+task ktFormat(type: JavaExec, group: "kotlin Formatting") {
+    description = 'Fix Kotlin code style deviations.'
+    args '-F', 'src/**/*.kt'
+    main = 'com.github.shyiko.ktlint.Main'
+    classpath = configurations.ktlint
 }

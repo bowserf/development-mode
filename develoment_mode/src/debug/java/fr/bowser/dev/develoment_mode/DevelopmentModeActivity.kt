@@ -7,7 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.*
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import fr.bowser.dev.develoment_mode.internal.DevelopmentModeImpl
 
@@ -33,7 +38,7 @@ class DevelopmentModeActivity : AppCompatActivity() {
     }
 
     private fun createBooleanValuesViews(
-        developmentMode: DevelopmentModeImpl,
+        developmentMode: DevelopmentModeImpl
     ) {
         developmentMode.getConfiguration().booleanValues.forEach { config ->
             val checkBox = CheckBox(this)
@@ -54,7 +59,7 @@ class DevelopmentModeActivity : AppCompatActivity() {
     }
 
     private fun createActionViews(
-        developmentMode: DevelopmentModeImpl,
+        developmentMode: DevelopmentModeImpl
     ) {
         developmentMode.getConfiguration().actions.forEach { config ->
             val button = Button(this)
@@ -74,7 +79,7 @@ class DevelopmentModeActivity : AppCompatActivity() {
     }
 
     private fun createIntValueViews(
-        developmentMode: DevelopmentModeImpl,
+        developmentMode: DevelopmentModeImpl
     ) {
         developmentMode.getConfiguration().intValues.forEach { config ->
             val title = createTitle(config.key)
@@ -99,7 +104,7 @@ class DevelopmentModeActivity : AppCompatActivity() {
     }
 
     private fun createLongValueViews(
-        developmentMode: DevelopmentModeImpl,
+        developmentMode: DevelopmentModeImpl
     ) {
         developmentMode.getConfiguration().longValues.forEach { config ->
             val title = createTitle(config.key)
@@ -124,7 +129,7 @@ class DevelopmentModeActivity : AppCompatActivity() {
     }
 
     private fun createStringValueViews(
-        developmentMode: DevelopmentModeImpl,
+        developmentMode: DevelopmentModeImpl
     ) {
         developmentMode.getConfiguration().stringValues.forEach { config ->
             val title = createTitle(config.key)
@@ -149,7 +154,7 @@ class DevelopmentModeActivity : AppCompatActivity() {
     }
 
     private fun createFloatValueViews(
-        developmentMode: DevelopmentModeImpl,
+        developmentMode: DevelopmentModeImpl
     ) {
         developmentMode.getConfiguration().floatValues.forEach { config ->
             val title = createTitle(config.key)
