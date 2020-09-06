@@ -4,7 +4,7 @@ import android.content.Context
 import fr.bowser.dev.develoment_mode.configuration.DevelopmentModeConfiguration
 import fr.bowser.dev.develoment_mode.internal.DevelopmentModeImpl
 import fr.bowser.dev.develoment_mode.internal.DevelopmentModeRepository
-import fr.bowser.dev.develoment_mode.internal.DevelopmentModeRepositoryDisk
+import fr.bowser.dev.develoment_mode.internal.DevelopmentModeRepositorySharedPreferences
 
 object DevelopmentModeModule {
 
@@ -40,10 +40,10 @@ object DevelopmentModeModule {
         developmentModeConfiguration: DevelopmentModeConfiguration
     ): DevelopmentModeRepository {
         val sharedPreferences = context.getSharedPreferences(
-            DevelopmentModeRepositoryDisk.PREFERENCE_NAME,
+            DevelopmentModeRepositorySharedPreferences.PREFERENCE_NAME,
             Context.MODE_PRIVATE
         )
-        return DevelopmentModeRepositoryDisk(
+        return DevelopmentModeRepositorySharedPreferences(
             sharedPreferences,
             developmentModeConfiguration
         )

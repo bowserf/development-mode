@@ -3,7 +3,7 @@ package fr.bowser.dev.develoment_mode.internal
 import android.content.SharedPreferences
 import fr.bowser.dev.develoment_mode.configuration.DevelopmentModeConfiguration
 
-internal class DevelopmentModeRepositoryDisk(
+internal class DevelopmentModeRepositorySharedPreferences(
     private val sharedPreferences: SharedPreferences,
     private val configuration: DevelopmentModeConfiguration
 ) : DevelopmentModeRepository {
