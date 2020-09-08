@@ -2,11 +2,15 @@
 
 ext {
     versionCode = 1
-    versionName = "1.0.0"
+    versionName = "0.0.1"
 
     compileSdkVersion = 29
     targetSdkVersion = 29
     minSdkVersion = 21
+
+    mavenGroupId = "fr.bowser.dev"
+    mavenArtifactId = "develoment-mode"
+    mavenArtifactIdDebug = "develoment-mode-debug"
 }
 
 buildscript {
@@ -19,6 +23,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:4.0.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

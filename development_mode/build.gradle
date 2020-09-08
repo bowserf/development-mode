@@ -1,5 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(new FileInputStream(localPropertiesFile))
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -57,4 +65,72 @@ task ktFormat(type: JavaExec, group: "kotlin Formatting") {
     args '-F', 'src/**/*.kt'
     main = 'com.github.shyiko.ktlint.Main'
     classpath = configurations.ktlint
+}
+
+bintray {
+    user = localProperties.containsKey("bintrayUser") ? localProperties["bintrayUser"] : ""
+    key = localProperties.containsKey("bintrayKey") ? localProperties["bintrayKey"] : ""
+    publications = ['release', 'debug']
+    pkg {
+        repo = 'DevelopmentMode'
+        name = 'fr.bowser.dev.development-mode'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/bowserf/development-mode.git'
+        version {
+            name = rootProject.ext.versionName
+            released  = new Date()
+        }
+    }
+}
+
+afterEvaluate {
+    task generateJavadoc(type: Javadoc) {
+        failOnError false
+        source = android.sourceSets.main.java.sourceFiles
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        classpath += configurations.compile
+    }
+
+    task javadocJar(type: Jar, dependsOn: generateJavadoc) {
+        classifier = 'javadoc'
+        from generateJavadoc.destinationDir
+    }
+
+    task sourcesJar(type: Jar) {
+        from android.sourceSets.main.java.srcDirs
+        classifier = 'sources'
+    }
+
+    artifacts {
+        archives javadocJar
+        archives sourcesJar
+    }
+
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+                artifact sourcesJar
+                artifact javadocJar
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = rootProject.ext.mavenGroupId
+                artifactId = rootProject.ext.mavenArtifactId
+                version = rootProject.ext.versionName
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+                artifact sourcesJar
+                artifact javadocJar
+
+                groupId = rootProject.ext.mavenGroupId
+                artifactId = rootProject.ext.mavenArtifactIdDebug
+                version = rootProject.ext.versionName
+            }
+        }
+    }
 }

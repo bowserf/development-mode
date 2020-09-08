@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/bowserf/development-mode.svg?branch=master)](https://travis-ci.org/bowserf/development-mode)
+[ ![Download](https://api.bintray.com/packages/bowserf/DevelopmentMode/fr.bowser.dev.development-mode/images/download.svg) ](https://bintray.com/bowserf/DevelopmentMode/fr.bowser.dev.development-mode/_latestVersion)
 
 # Development Mode library
 
@@ -28,8 +29,8 @@ Example: If your application has an onboarding which is only displayed at the fi
 ### Import the library
 
 ```
-debugImplementation("fr.bowser.dev:develoment-mode-debug:1.0.0")
-releaseImplementation("fr.bowser.dev:develoment-mode:1.0.0")
+debugImplementation("fr.bowser.dev:develoment-mode-debug:0.0.1")
+releaseImplementation("fr.bowser.dev:develoment-mode:0.0.1")
 ```
 
 The debug library version provides the "development mode" activity and a new icon launcher.
