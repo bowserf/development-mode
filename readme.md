@@ -3,7 +3,7 @@
 
 # Development Mode library
 
-Library to build custom behaviors inside your application built in debug.
+Library to build custom behaviors inside your debug application.
 
 ## Goal
 
@@ -14,11 +14,11 @@ Library to build custom behaviors inside your application built in debug.
     height="555"
     title="Development mode screen with all customizations">
 
-In "debug" build, the library provides a "development mode" activity you can start by clicking on the new icon launcher coming with your classic app icon. Inside this activity, you can customize some behaviors of your application. 
+In "debug" build, the library add a "development mode" activity whose UI is auto generated based on the customization you defined. This activity can be start with a dedicated icon launcher.
 
-Based on a system of "key" / "value", you can get back values you set to customize your application behavior.
+Based on a system of "key" / "value", you can get back values you set in the "development mode" activity to customize your application behavior.
 
-Example: If your application has an onboarding, you can choose to skip it based on a boolean value. Inside the "development mode" activity, you can change the value of this boolean to adapt the experience.
+Example: If your application has an onboarding, you can choose to skip it based on a boolean value. Inside the "development mode" activity, you can check/uncheck a CheckBox to change the value of this boolean and adapt the app experience.
 
 You can also link actions to a click in the "development mode" activity.
 
